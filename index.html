@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASSAMESE STUDY LAND</title>
+  <style>
+    /* Google Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: linear-gradient(120deg, #2b5876, #4e4376);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    header {
+      text-align: center;
+      padding: 50px 20px;
+      animation: fadeDown 1.5s ease;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: #ffdd57;
+      text-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+      color: #f5f5f5;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      margin: 20px;
+      padding: 12px 30px;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      background: linear-gradient(45deg, #ff416c, #ff4b2b);
+      color: white;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      transition: 0.4s;
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+      background: linear-gradient(45deg, #ff4b2b, #ff416c);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+    }
+
+    /* Notes Section */
+    .notes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 40px;
+      animation: fadeUp 1.5s ease;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.1);
+      padding: 20px;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+      transition: 0.4s;
+      transform: translateY(30px);
+      opacity: 0;
+    }
+
+    .card.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #ffdd57;
+    }
+
+    .card p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(0,0,0,0.3);
+      margin-top: 30px;
+      font-size: 0.9rem;
+    }
+
+    /* Animations */
+    @keyframes fadeDown {
+      from {opacity: 0; transform: translateY(-50px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes fadeUp {
+      from {opacity: 0; transform: translateY(50px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>ASSAMESE STUDY LAND</h1>
+    <p>Free Notes • Study Materials • Easy Learning</p>
+    <button class="btn" onclick="scrollToNotes()">Explore Notes</button>
+    <button class="btn">Contact Us</button>
+  </header>
+
+  <section class="notes" id="notes">
+    <div class="card">
+      <h3>Mathematics</h3>
+      <p>Download formulas, solved problems, and short tricks to prepare better.</p>
+    </div>
+    <div class="card">
+      <h3>Assamese Literature</h3>
+      <p>Get summaries, important questions, and grammar notes in Assamese.</p>
+    </div>
+    <div class="card">
+      <h3>Science</h3>
+      <p>Physics, Chemistry & Biology simplified for students with diagrams.</p>
+    </div>
+    <div class="card">
+      <h3>History</h3>
+      <p>Notes on Assamese and Indian history with key events explained.</p>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Assamese Study Land | All Rights Reserved
+  </footer>
+
+  <script>
+    // Smooth Scroll to Notes
+    function scrollToNotes() {
+      document.getElementById("notes").scrollIntoView({ behavior: "smooth" });
+    }
+
+    // Card Animation on Scroll
+    const cards = document.querySelectorAll(".card");
+    window.addEventListener("scroll", checkCards);
+
+    function checkCards() {
+      const triggerBottom = window.innerHeight * 0.85;
+      cards.forEach(card => {
+        const cardTop = card.getBoundingClientRect().top;
+        if (cardTop < triggerBottom) {
+          card.classList.add("show");
+        }
+      });
+    }
+  </script>
+</body>
+</html>
